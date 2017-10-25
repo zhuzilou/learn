@@ -1,5 +1,7 @@
 package cc.lostyouth.spring.highlight_spring4.ch01.aop;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,5 +9,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DemoMethodService {
-    public void add(){}
+    private static final Logger LOG = LoggerFactory.getLogger(DemoMethodService.class);
+
+    public void add() {
+        LOG.info(this.getClass().getName());
+    }
 }
