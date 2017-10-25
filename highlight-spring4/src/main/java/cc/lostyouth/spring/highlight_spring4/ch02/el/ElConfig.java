@@ -1,6 +1,8 @@
 package cc.lostyouth.spring.highlight_spring4.ch02.el;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +23,7 @@ import java.nio.charset.Charset;
 //注入配置文件需要使用@PropertySource指定文件地址
 @PropertySource("classpath:el.properties")
 public class ElConfig {
+    private static final Logger LOG = LoggerFactory.getLogger(ElConfig.class);
     //注入普通字符串
     @Value("I Love You!")
     private String normal;
@@ -45,9 +48,11 @@ public class ElConfig {
     @Value("http://www.baidu.com")
     private Resource testUrl;
 
-    /*注入配置文件，使用@Value注入，则需要配置一个PropertySourcesPlaceholderConfigurer的Bean，
-    *  e("${book.name}")Value使用的是"$"，而不是"#"
-    * */
+    /*
+     * 注入配置文件
+     * 使用@Value注入，则需要配置一个PropertySourcesPlaceholderConfigurer的Bean。
+     * 注意@Value("${book.name}")Value使用的是"$"，而不是"#"
+     */
     @Value("${book.name}")
     private String bookName;
 
@@ -59,18 +64,18 @@ public class ElConfig {
     public static PropertySourcesPlaceholderConfigurer propertyConfigure() {
         return new PropertySourcesPlaceholderConfigurer();
     }
-    /* End */
+    /* 注入配置文件 End */
 
     public void outputResource() {
         try {
-            System.out.println(normal);
-            System.out.println(osName);
-            System.out.println(randomNumber);
-            System.out.println(fromAnother);
-            System.out.println(IOUtils.toString(testFile.getInputStream(), Charset.forName("UTF-8")));
-            System.out.println(bookName);
-            System.out.println(environment.getProperty("book.author"));
-            //System.out.println(testUrl);
+            LOG.info(normal);
+            LOG.info(osName);
+            LOG.info(String.valueOf(randomNumber));
+            LOG.info(fromAnother);
+            LOG.info(IOUtils.toString(testFile.getInputStream(), Charset.forName("UTF-8")));
+            LOG.info(bookName);
+            LOG.info(environment.getProperty("book.author"));
+            //LOG.info(testUrl);
         } catch (Exception e) {
             e.printStackTrace();
         }
