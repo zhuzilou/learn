@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
+ * <p>@Self: 使用@Value时，需要在Spring容器中注册该Bean。</p>
  * Created by endless on 10/17/2017.
  */
 @Service
