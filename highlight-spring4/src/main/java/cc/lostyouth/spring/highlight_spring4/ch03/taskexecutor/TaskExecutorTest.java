@@ -10,7 +10,7 @@ public class TaskExecutorTest {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TaskExecutorConfig.class);
         AsyncTaskService asyncTaskService = context.getBean(AsyncTaskService.class);
         //当i的范围超过线程池最大的维护数量时，会引发TaskRejectedException异常。
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             asyncTaskService.executeAsyncTask(i);
             asyncTaskService.executeAsyncTaskPlus(i);
         }
