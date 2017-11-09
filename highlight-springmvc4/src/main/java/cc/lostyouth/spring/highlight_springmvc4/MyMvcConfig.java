@@ -70,6 +70,11 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/toUpload").setViewName("/upload");
     }
 
+    /**
+     * 文件上传配置
+     *
+     * @return
+     */
     @Bean
     public MultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
