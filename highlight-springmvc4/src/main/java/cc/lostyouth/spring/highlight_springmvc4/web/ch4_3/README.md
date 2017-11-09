@@ -1,5 +1,5 @@
 # Spring MVC 常用注解
-## @Controller
+## @Controller [DemoAnnoController](https://github.com/zhuzilou/spring-learn/blob/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_3/DemoAnnoController.java)
 @Controller注解在类上，表明这个类是Spring MVC里的Controller，将其声明为Spring的一个Bean，Dispatcher Servlet
 会自动扫描此类注解（类似于Spring中的AOP注解拦截，见cc.lostyouth.spring.highlight_spring4.ch01.aop.AopTest），
 并将Web请求映射到注解了@RequestMapping的方法上。
@@ -10,6 +10,7 @@
 @RequestMapping注解是用来映射Web请求（访问路径和参数）、处理类和方法的。@RequestMapping可注解在类或方法上，注解
 在方法上的路径会继承注解在类上的路径。@RequestMapping支持Servlet的request和response作为参数，也支持对request
 和response的媒体类型进行配置。
+
 ### @RequestMapping可配置参数
 #### produces
 produces可定制返回的response的媒体类型和字符表
@@ -32,6 +33,6 @@ produces可定制返回的response的媒体类型和字符表
 ## @PathVariable
 @PathVariable用来接收路径参数，如/news/001，可接收001作为参数。`此注解放置在参数前。`
 
-## @RestController
+## @RestController [DemoRestController](https://github.com/zhuzilou/spring-learn/blob/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_3/DemoRestController.java)
 @RestController是一个组合注解，组合了@Controller和@ResponseBody，这就意味着你只开发一个和页面交互数据的控制的时候，
 需要使用此注解。可以同时添加@Controller和@ResponseBody注解达到同样效果。
