@@ -64,8 +64,14 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(demoInterceptor());
     }
 
+    /**
+     * 快捷的ViewController：对于只是页面跳转不需要业务处理的控制器，用此配置减少冗余代码。
+     *
+     * @param registry
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        //此配置可替换HelloController#hello
         registry.addViewController("/index").setViewName("/index");
         registry.addViewController("/toUpload").setViewName("/upload");
     }
