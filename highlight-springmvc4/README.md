@@ -12,6 +12,9 @@ SpringMVC的配置支持。[MyMvcConfig](https://github.com/zhuzilou/spring-lear
 ## [Spring MVC 拦截器](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/interceptor)
 
 ## [Spring MVC 控制器全局配置](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/advice)
+
+## [快捷的ViewController](https://github.com/zhuzilou/spring-learn/blob/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/MyMvcConfig.java)，针对无任何业务处理，只是简单的页面转向。
+
 ## Spring MVC 高级配置
 
 ### [文件上传配置](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_5)
