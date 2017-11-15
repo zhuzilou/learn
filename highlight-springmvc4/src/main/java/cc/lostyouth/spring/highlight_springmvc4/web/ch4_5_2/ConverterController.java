@@ -1,4 +1,4 @@
-package cc.lostyouth.spring.highlight_springmvc4.web.ch4_5;
+package cc.lostyouth.spring.highlight_springmvc4.web.ch4_5_2;
 
 import cc.lostyouth.spring.highlight_springmvc4.domain.DemoObj;
 import org.springframework.stereotype.Controller;
