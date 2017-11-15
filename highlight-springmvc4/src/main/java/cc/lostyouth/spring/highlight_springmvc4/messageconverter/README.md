@@ -1,0 +1,4 @@
+# Spring MVC 自定义HttpMessageConverter
+HttpMessageConvert是用来处理request和response里的数据的。
+1. 添加自定义的HttpMessageConvert，继承AbstractHttpMessageConverter。
+2. 在配置类中注册自定义Convert，重写extendMessageConverters添加新的Convert或重写configureMessageConverters覆盖掉Spring MVC默认注册的Convert。

@@ -1,9 +1,11 @@
 package cc.lostyouth.spring.highlight_springmvc4;
 
 import cc.lostyouth.spring.highlight_springmvc4.interceptor.DemoInterceptor;
+import cc.lostyouth.spring.highlight_springmvc4.messageconverter.MyMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.List;
 
 /**
  * Created by endless on 11/7/2017.
@@ -74,6 +78,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         //此配置可替换HelloController#hello
         registry.addViewController("/index").setViewName("/index");
         registry.addViewController("/toUpload").setViewName("/upload");
+        //添加viewController映射页面访问演示页面
+        registry.addViewController("/converter").setViewName("/converter");
     }
 
     /**
@@ -86,5 +92,35 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(1000000);
         return multipartResolver;
+    }
+
+    /**
+     * 注册MyMessageConverter
+     *
+     * @return
+     */
+    @Bean
+    public MyMessageConverter converter() {
+        return new MyMessageConverter();
+    }
+
+    /**
+     * 仅添加一个自定义的HttpMessageConverter，不覆盖掉Spring MVC默认注册的HttpMessageConverter。
+     *
+     * @param converters
+     */
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(converter());
+    }
+
+    /**
+     * 重载会覆盖掉Spring MVC默认注册的多个HttpMessageConverter。
+     *
+     * @param converters
+     */
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
     }
 }
