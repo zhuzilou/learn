@@ -17,4 +17,10 @@ SpringMVC的配置支持。[MyMvcConfig](https://github.com/zhuzilou/spring-lear
 
 ## Spring MVC 高级配置
 
-### [文件上传配置](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_5)
+### [文件上传配置](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_5_1)
+
+### [自定义HttpMessageConverter处理request和response里的数据](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/messageconverter)
+
+### [服务器端推送技术-SSE](https://github.com/zhuzilou/spring-learn/tree/master/highlight-springmvc4/src/main/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_5_3)
+
+## [Spring MVC 测试](https://github.com/zhuzilou/spring-learn/blob/master/highlight-springmvc4/src/test/java/cc/lostyouth/spring/highlight_springmvc4/web/ch4_6/TestControllerIntegrationTests.java)
