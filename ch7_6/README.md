@@ -2,7 +2,7 @@
 ## 基于子协议STOMP的实现
 ### 广播式
 广播式即服务端有消息式，会将消息发送给所有连接了当前endpoint的浏览器。
-#### 定义配置类
+#### 1. 定义配置类
         (1) 继承AbstractWebSocketMessageBrokerConfigurer，实现方法registerStompEndpoints和configureMessageBroker；
         (2) registerStompEndpoints定义使用StockJS协议的endpoint，用于前端连接时使用（如 /endpointWisely）；
         (3) configureMessageBroker定义广播式消息代理的前缀名称（可配置多个前缀，如 /topic），类似于拦截器中的路径匹配'/*'。
