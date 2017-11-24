@@ -23,7 +23,7 @@
         (1) 使用@MessageMapping定义接收浏览器消息路径（如 /chat）；
         (2) 通过SimpMessagingTemplate向浏览器发送消息；
         (3) 由于通过SimpMessagingTemplate.convertAndSendToUser方法发送点对点式消息，需要知道接收者的信息（示例借用Spring Security获取登录用户信息）作为方法的第一个参数。
-#### 3. 定义前端，参见[chat.html]()
+#### 3. 定义前端，参见[chat.html](https://github.com/zhuzilou/spring-learn/blob/master/ch7_6/src/main/resources/templates/chat.html)
         (1) 根据配置类中定义的endpoint使用SockJS创建socket；
         (2) 使用socket通过STOMP创建client；
         (3) 打开client的连接，并订阅'/user/queue/notifications'路径，
