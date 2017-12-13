@@ -26,8 +26,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>cc.lostyouth.spring</groupId>
-            <artifactId>spring-boot-starter-hello</artifactId>
+            <groupId>cc.lostyouth.learn</groupId>
+            <artifactId>subversive-of-j2ee-spring-boot-starter-hello</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
