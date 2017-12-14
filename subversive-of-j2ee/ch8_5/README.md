@@ -18,6 +18,7 @@
 * @CachePut 无论怎样，都会将方法的返回值放到缓存中。 @CachePut的属性和@Cacheable保持一致
 * @CacheEvict 将一条或多条数据从缓存中删除
 * @Caching 可以通过@Caching注解组合多个注解策略在一个方法上
+
 **@Cacheable、@CachePut、@CacheEvict都有value属性，指定的是要使用的缓存名称；key属性指定的是数据在缓存中存储的键。**
 
 ### Spring开启声明式缓存支持
@@ -40,6 +41,7 @@ Spring Boot自动配置的CacheManager
 * SimpleCacheConfiguration *`使用ConcurrentMap，不同于Spring中的SimpelCacheManager。`*
 **在不做任何额外配置的情况下，默认使用的是SimpleCacheConfiguration。**
 
+### Spring Boot缓存配置
 Spring Boot支持以spring.cache为前缀的属性来配置缓存
 * spring.cache.type= # 可选generic, ehcache, hazelcast, infinispan, jcache, redis, guava, simple, none
 * spring.cache.cache-name= # 程序启动时创建缓存名称 *`和声明式注解中的属性value有什么区别？？？`*
@@ -49,4 +51,17 @@ Spring Boot支持以spring.cache为前缀的属性来配置缓存
 * spring.cache.jcache.config= # jcache配置文件地址
 * spring.cache.jcache.provider= # 当多个jcache实现在类路径中的时候，指定jcache实现
 * spring.cache.guava.spec # guava.spec *`什么东东？？？`*
+
 **在Spring Boot环境下，使用缓存技术导入相关缓存技术的依赖包，并在配置类使用@EnableCaching注解开启支持。**
+
+### 使用ehcache作为缓存实现
+1. POM中添加ehcache依赖；
+2. 在类路径中添加ehcache.xml配置文件，具体说明见[ehcache1.xml](https://github.com/zhuzilou/spring-boot-learn/blob/master/subversive-of-j2ee/ch8_5/src/main/resources/ehcache1.xml)；
+3. 使用集群时需要添加同步配置选项，可以配置多个ehcache.xml，打包前通过spring.cache.ehcache.config指定不同服务器使用的文件。
+4. 集群配置如果发现不能同步，请检查：实体类是否可序列化、服务器端口是否被防火墙拦截；如果测试机上有虚拟网卡配置请关闭。
+
+Ehcache参考
+* [Spring Boot集成EHCache实现缓存机制](http://blog.csdn.net/linxingliang/article/details/52263773)
+* [缓存-ehcache 集群缓存的同步](http://blog.csdn.net/xcw931924821/article/details/52335696)
+
+Tips: *`本地测试时使用默认配置，生产上线时根据需要配置其他缓存实现，保证注解中的value（缓存名称）与配置文件中相同，则无需修改代码（以Ehcache为例）。`*
