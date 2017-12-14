@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by endless on 12/12/2017.
  */
 @Entity
-public class Person {
+public class Person implements Serializable {
+    private static final long serialVersionUID = -1595660838681136698L;
     @GenericGenerator(
             name = "SEQ_PERSON",
             strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
