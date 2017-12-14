@@ -39,6 +39,7 @@ Spring Boot自动配置的CacheManager
 * NoOpCacheConfiguration
 * RedisCacheConfiguration
 * SimpleCacheConfiguration *`使用ConcurrentMap，不同于Spring中的SimpelCacheManager。`*
+
 **在不做任何额外配置的情况下，默认使用的是SimpleCacheConfiguration。**
 
 ### Spring Boot缓存配置
@@ -60,7 +61,7 @@ Spring Boot支持以spring.cache为前缀的属性来配置缓存
 3. 使用集群时需要添加同步配置选项，可以配置多个ehcache.xml，打包前通过spring.cache.ehcache.config指定不同服务器使用的文件。
 4. 集群配置如果发现不能同步，请检查：实体类是否可序列化、服务器端口是否被防火墙拦截；如果测试机上有虚拟网卡配置请关闭。
 
-Ehcache参考
+#### Ehcache参考
 * [Spring Boot集成EHCache实现缓存机制](http://blog.csdn.net/linxingliang/article/details/52263773)
 * [缓存-ehcache 集群缓存的同步](http://blog.csdn.net/xcw931924821/article/details/52335696)
 
