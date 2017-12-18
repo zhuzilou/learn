@@ -1,0 +1,21 @@
+# Spring Boot 集成 Redis数据库
+在Spring中使用Redis需要配置连接相关的ConnectionFactory和数据操作相关的RedisTemplate。
+Spring Data Redis根据Redis不同的Java客户端提供了4种ConnectionFactory：
+1. JedisConnectionFactory
+2. JredisConnectionFactory
+3. LettuceConnectionFactory
+4. SrpConnectionFactory
+
+当数据存储到Redis的时候，键和值都是通过Spring提供的Serializer序列化到数据库的，RedisTemplate默认使用的是
+JdkSerializationRedisSerializer，StringRedisTemplate默认使用的是StringRedisSerializer。
+Spring Data JPA提供了以下的Serializer：
+1. GenericToStringSerializer
+2. Jackson2JsonRedisSerializer
+3. JacksonJsonRedisSerializer
+4. JdkSerializerRedisSerializer
+5. OxmSerializer
+6. StringRedisSerializer
+
+`Spring Boot通过RedisAutoConfiguration默认配置了JedisConnectionFactory、RedisTemplate以及StringRedisTemplate。`
+
+教程过于简单且看起来比其他方式较为复杂，有待研究实际应用场景。
