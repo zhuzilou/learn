@@ -1,7 +1,7 @@
 # Spring多线程
 Spring通过任务执行器（TaskExecutor）来实现多线程和并发编程。使用ThreadPoolTaskExecutor可实现一个基于线程池的TaskExecutor。
 1. 配置类中通过@EnableAsync开启对异步任务的支持；
-2. 通过在实际执行的Bean的方法中使用@Async注解来声明其是一个异步任务。
+2. 通过在实际执行的Bean的方法中使用@Async注解来声明其是一个异步任务。`**@Async需要使用在单独的类中**`
 
 ## ThreadPoolTaskExecutor 参考[spring线程池ThreadPoolTaskExecutor](http://www.cnblogs.com/chkk/p/5386356.html)
 ThreadPoolTaskExecutor是一个spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。参考spring线程池ThreadPoolTaskExecutor。
